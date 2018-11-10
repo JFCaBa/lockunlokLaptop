@@ -1,0 +1,6 @@
+{
+    "terminal.integrated.env.osx": {
+        "PATH": "/Volumes/Data/Users/josecatala/.platformio/penv/bin:/Volumes/Data/Users/josecatala/.platformio/penv:/Volumes/Data/Users/josecatala/android/sdk/tools/bin:/Volumes/Data/Users/josecatala/Library/Android/sdk/platform-tools:/Volumes/Data/Users/josecatala/android/sdk/tools:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/dotnet:~/.dotnet/tools:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Applications/Xamarin Workbooks.app/Contents/SharedSupport/path-bin:/Volumes/Data/Users/josecatala/opt/gcc-arm-none-eabi-7-2018-q2-update/bin/",
+        "PLATFORMIO_CALLER": "vscode"
+    }
+}
