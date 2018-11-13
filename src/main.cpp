@@ -23,20 +23,19 @@
 #include "keyboardHelper.h"
 
 #define __DEBUG
-
 #define RST_PIN         9          // Configurable, see typical pin layout above
 #define SS_PIN          10         // Configurable, see typical pin layout above
-
 #define MY_CARD         20435
 #define MY_TAG          29468
 
+KEYBOARD keyboard;
 
 int trigPin = 6;    // Trigger
 int echoPin = 7;    // Echo
 long duration, cm, inches;
 uint32_t timer = millis();
 bool locked = false;
-uint8_t buf[8] = {0};
+
 
 MFRC522 mfrc522(SS_PIN, RST_PIN);  // Create MFRC522 instance
 
@@ -57,9 +56,7 @@ unsigned long getID()
 
 void releaseKey() 
 {
-  buf[0] = 0;
-  buf[2] = 0;
-  Serial.write(buf, 8);  // Release key  
+
 }
 
 void setup() 
