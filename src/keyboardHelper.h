@@ -62,6 +62,10 @@
 class KEYBOARD 
 {
 	public:
+	void print(char *keys, unsigned int length);
+	void print(String str);
+	void println(char *keys, unsigned int length);
+	void println(String str);
 	void pressKey(char *key);
 	void releaseAllKeys();
 	

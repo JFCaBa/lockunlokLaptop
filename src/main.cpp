@@ -93,7 +93,7 @@ void loop()
   duration = pulseIn(echoPin, HIGH);
  
   // Convert the time into a distance
-  cm = (duration/2) / 29.1;     // Divide by 29.1 or multiply by 0.0343
+  cm     = (duration/2) / 29.1;     // Divide by 29.1 or multiply by 0.0343
   inches = (duration/2) / 74;   // Divide by 74 or multiply by 0.0135
   
   if((inches > 80) && ( millis() - timer > 5000)  && (locked == false))//away for more than 5 sec

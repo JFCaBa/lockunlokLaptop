@@ -14,9 +14,9 @@ const uint8_t asciimap[128] =
 	0x00,             // ENQ
 	0x00,             // ACK  
 	0x00,             // BEL
-	0x2a,			// BS	Backspace
-	0x2b,			// TAB	Tab
-	0x28,			// LF	Enter
+	0x2a,			  // BS	Backspace
+	0x2b,			  // TAB	Tab
+	0x28,			  // LF	Enter
 	0x00,             // VT 
 	0x00,             // FF 
 	0x00,             // CR 
@@ -65,9 +65,9 @@ const uint8_t asciimap[128] =
 	0x24,          // 7
 	0x25,          // 8
 	0x26,          // 9
-	0x33|SHIFT,      // :
+	0x33|SHIFT,    // :
 	0x33,          // ;
-	0x36|SHIFT,      // <
+	0x36|SHIFT,    // <
 	0x2e,          // =
 	0x37|SHIFT,      // >
 	0x38|SHIFT,      // ?
@@ -134,13 +134,53 @@ const uint8_t asciimap[128] =
 	0x31|SHIFT,    // |
 	0x30|SHIFT,    // }
 	0x35|SHIFT,    // ~
-	0				// DEL
+	0			   // DEL
 };
+
+void KEYBOARD::print(char *keys, unsigned int length)
+{
+	for(unsigned int i = 0; i < length; i++)
+	{
+		char c = *keys + i;
+		char a = asciimap[(int)c];
+		Serial.write(a);
+		delay(random(120));
+	}
+
+	releaseAllKeys();
+}
+
+void KEYBOARD::println(char *keys, unsigned int length)
+{
+	print(keys, length);
+	char c[3] = {0};
+	c[0] = '\r';
+	c[1] = '\n';
+	print(c, sizeof(c));
+}
+
+void KEYBOARD::print(String str)
+{
+	unsigned int i = str.length;
+	char c[i + 1] = {0};
+	str.toCharArray(c,i);
+	print(c, sizeof(c));
+}
+
+void KEYBOARD::println(String str)
+{
+	print(str);
+	char c[3] = {0};
+	c[0] = '\r';
+	c[1] = '\n';
+	print(c, sizeof(c));
+}
 
 void KEYBOARD::pressKey(char *key)
 {
     unsigned int i = (int)key;
 
+	if(i >)
     uint8_t target = asciimap[i];
     buf[0] = target; 
 }
